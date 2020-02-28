@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Getting Started</title>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.9.2/underscore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/backbone@1.4.0/backbone.js"></script>
+    
+    <script src="../dist/ccma.tts.min.js"></script>
+    <style>
+        .content{
+            border-radius: 31px 31px 31px 31px;
+            -moz-border-radius: 31px 31px 31px 31px;
+            -webkit-border-radius: 31px 31px 31px 31px;
+            border: 2px solid #000000; 
+            margin: 0 auto; 
+            width: 50%;
+            padding: 10px;
+            background-color: #ADABAE;
+        }
+        .button{
+            border-radius: 31px 31px 31px 31px;
+            -moz-border-radius: 31px 31px 31px 31px;
+            -webkit-border-radius: 31px 31px 31px 31px;
+            border: 2px solid #000000;
+             
+        }
+    </style>
+  </head>
+  <body style="text-align: center;">
+    <button style="width: 200px; height: 50px; margin: 20px; font-size: 20px" id="tts" style="margin-bottom: 20px" data-active="false" onclick="texttospeech()">Enable TTS</button>
+    
+    <div class="content" aria-labelledby="text1">
+        <button class="button" onclick="talk('texttospeech1')">TTS Talk</button>
+        <h1 id="text1">TTS will read this text</h1>
+        <div id="texttospeech1" data-texttospeech-id="render" data-texttospeech-cancellable="false" aria-labelledby="text2">
+            <h2 id="text2">This text is not cancellable</h1>
+        </div>
+    </div>
+    <div aria-label="Second text">
+        <div class="content" id="texttospeech2" data-texttospeech-speed="slow" aria-label="">
+            <button class="button" onclick="talk('texttospeech2')" aria-hidden="true">TTS Talk</button>
+            <h1>TTS will read this second text</h1>
+            <div>
+                <h2 aria-hidden="true">This text will not be readed</h1>
+                <h2>This text will be readed slowly</h1>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <button class="button" onclick="talk('texttospeech3')">TTS Talk</button>
+        <h1 id="texttospeech3" aria-label="_beep">Beeeeeeeeeep!!!</h1>
+    </div>
+    <audio id="audio" hidden="true" controls>
+        <source src="" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        var tts = document.getElementById("tts");
+        var audioPlayer = document.getElementById("audio");
+        
+        
+
+        function texttospeech() {
+            if(tts.getAttribute('data-active') === "true"){
+                tts.innerHTML = "Enable TTS";;
+                tts.setAttribute('data-active','false');
+                CCMATTS.offAudioURLChange(onURLChange);
+            }else{
+                tts.innerHTML = "Disable TTS";
+                tts.setAttribute('data-active','true');
+                CCMATTS.setAudioServiceURLFactory(function(params) {
+                    if(params.text.indexOf('#beep') >= 0){
+                        return '../src/audio/beep.mp3#' + Math.floor((Math.random() * 1000) + 1);
+                    }
+                    return 'PATH/TO/YOUR/TTS' + '?text=' + encodeURIComponent(params.text) + '&lang=en&vol=100&rate=' + encodeURIComponent(params.speed);
+                });
+                CCMATTS.onAudioURLChange(onURLChange);
+            }
+        }
+        function onURLChange(ev) {
+            audioPlayer.src = ev.url;
+            audioPlayer.play();
+            audioPlayer.onended = ev.onAudioFinished
+        }
+        function talk(id) {
+            if(tts.getAttribute('data-active') === "true"){
+                var textElement = document.getElementById(id);
+                var config = CCMATTS.getTTSConfigFromElement(textElement,true);
+                config.titleSection = "Section: " + config.titleSection;
+                CCMATTS.pushAudioConfig(config);
+            }
+        }
+    </script>
+  </body>
+</html>
