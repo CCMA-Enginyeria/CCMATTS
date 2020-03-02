@@ -44,7 +44,7 @@ function onURLChange(ev) {
 //STOP CCMATTS SERVICE
 CCMATTS.offAudioURLChange(onURLChange);
 ````
-You will have config audio that can be readed from the HTML or doing it manually. Config consists of these parts:
+You will have a config for each audio that can be readed from the HTML or doing it manually. Config consists of these parts:
 ````javascript
 {
     titleSection: "I am a text", //String with the section text of the audio (optional default="")
@@ -76,6 +76,6 @@ CCMATTS.pushAudioConfig(config);
 ````
 If you want to change the default speed use the next function. Values of speed con be 'slow', 'normal' or 'fast'.
 ````javascript
-CCMATTS.pushAudioConfig(speed);
+CCMATTS.setSpeed(speed);
 ````
-You have a simple Screen Reader example in ````'./example/index.html'```` 
+You have a simple Screen Reader example in ````'./example/index.html'````. Put your service Text-to-Speech URL and try it! 
