@@ -1,8 +1,22 @@
 # Screen Reader CCMATTS
 
-A Javascript library suitable for any web page and audio players. CCMATTS can be used with any Text-to-Speech API. It integrates a modification of the aria HTML standard. It works with a priority audio queues in order to decide which is the best audio to reproduce. 
+This library has been developed for the EasyTV project.
+The prime motivation of EasyTV is the necessity of equal access to television and audio-visual services to ensure that all users, especially persons with disabilities, the growing ageing population of Europe and users with special needs can derive maximum benefit in terms of choice and quality of media content and services + info:  https://easytvproject.eu/ 
+
+## CCMA commitment to accessibility
+
+Since 2010, the CCMA has been very sensitive to TV users with special needs, investigating and implementing services of accessibility for hybrid television within European projects. In the Hybrid Broadcast Broadband for All project (Hbb4ALL), the CCMA worked in different alternatives for audio production and distribution, including Clean Audio, Audio Description and languages learning. EASYTV project is a great challenge to follow the work initiated by Hbb4ALL in TV accessibility environment. EasyTV project has the challenge of improving the access to mainstream multimedia products and services for people with different types and levels of disabilities, such as visually or hearing impairment.
+
+## HBBTV screen reader
+
+One of the additional difficulties for blind and low vision people is the use of graphical user interfaces. A voice guide, can help blind people to use interfaces to interact with electronic devices. On this basis, we have added a voice interface named Screen Reader (SR) to our HbbTV service to guide the users to find and consume content through voice indication. HbbTV apps in general still have a lack of accessibility, so this is the first time an HbbTV application covers this need of voice guiding.
+
+Using the EasyTV Voice Platform solution which offers a TTS (voice to text) service, the SR describes the graphical user interface considering the menu and sections items.
+
 
 ## How to use CCMATTS
+
+A Javascript library suitable for any web page and audio players. CCMATTS can be used with any Text-to-Speech API. It integrates a modification of the aria HTML standard. It works with a priority audio queues in order to decide which is the best audio to reproduce. 
 
 To start, you will have to include the embeded Javascript library in your website and three other libraries (jQuery, Underscore and Backbone) before the ```body``` tag.
 
@@ -79,3 +93,5 @@ If you want to change the default speed use the next function. Values of speed c
 CCMATTS.setSpeed(speed);
 ````
 You have a simple Screen Reader example in ````'./example/index.html'````. Put your service Text-to-Speech URL and try it! 
+
+
