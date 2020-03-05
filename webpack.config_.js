@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -9,12 +8,9 @@ module.exports = {
     filename: 'ccma.tts.min.js',
     path: path.resolve(__dirname, 'dist'),
   }, 
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      _: "underscore",
-      Backbone: "backbone"
-    })
-  ]
+  externals: {
+    jquery: 'jQuery',
+    underscore: '_',
+    backbone: 'Backbone'
+  }
 };
