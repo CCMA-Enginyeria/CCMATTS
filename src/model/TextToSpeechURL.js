@@ -1,5 +1,3 @@
-import _ from 'underscore';
-import Backbone from 'backbone';
 import TextToSpeech from './TextToSpeech';
 
 const TextToSpeechURL = Backbone.Model.extend({

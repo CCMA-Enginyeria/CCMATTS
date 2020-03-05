@@ -1,4 +1,3 @@
-import _ from 'underscore';
 import TextToSpeechConfig from './model/texttospeechConfig';
 import TextToSpeech from './model/TextToSpeech';
 import TextToSpeechURL from './model/TextToSpeechURL';
