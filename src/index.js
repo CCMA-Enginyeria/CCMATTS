@@ -1,4 +1,4 @@
-import TextToSpeechConfig from './model/texttospeechConfig';
+import TextToSpeechConfig from './model/TextToSpeechConfig';
 import TextToSpeech from './model/TextToSpeech';
 import TextToSpeechURL from './model/TextToSpeechURL';
 
