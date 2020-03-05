@@ -2,6 +2,7 @@
   "name": "ccma-tts",
   "version": "1.0.0",
   "description": "A small JavaScript library that provides a text to speech.",
+  "main": "dist/ccma.tts.min.js",
   "private": true,
   "directories": {
     "example": "example"
