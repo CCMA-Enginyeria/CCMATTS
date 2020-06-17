@@ -8,7 +8,8 @@ The prime motivation of EasyTV is the necessity of equal access to television an
 Since 2010, the CCMA has been very sensitive to TV users with special needs, investigating and implementing services of accessibility for hybrid television within European projects. In the Hybrid Broadcast Broadband for All project (Hbb4ALL), the CCMA worked in different alternatives for audio production and distribution, including Clean Audio, Audio Description and languages learning. EASYTV project is a great challenge to follow the work initiated by Hbb4ALL in TV accessibility environment. EasyTV project has the challenge of improving the access to mainstream multimedia products and services for people with different types and levels of disabilities, such as visually or hearing impairment.
 
 ## Author
-© Corporació Catalana de Mitjans Audiovisuals, SA
+© Corporació Catalana de Mitjans Audiovisuals, SA.
+
 contact: Enginyeria-Recerca@ccma.cat
 
 ## HBBTV screen reader
